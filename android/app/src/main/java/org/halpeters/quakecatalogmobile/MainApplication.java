@@ -1,4 +1,4 @@
-package com.reactnativemobxfirebasestarter;
+package org.halpeters.quakecatalogmobile;
 
 import android.app.Application;
 
