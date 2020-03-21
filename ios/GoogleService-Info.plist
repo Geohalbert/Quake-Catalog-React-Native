@@ -2,39 +2,35 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
-	<string>PLACEHOLDER</string>
-	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
-	<string>PLACEHOLDER</string>
 	<key>CLIENT_ID</key>
-	<string>PLACEHOLDER</string>
+	<string>210661328581-362pnvpq0f0fd55ge6vuctg1djrvcv7t.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>PLACEHOLDER</string>
+	<string>com.googleusercontent.apps.210661328581-362pnvpq0f0fd55ge6vuctg1djrvcv7t</string>
 	<key>API_KEY</key>
-	<string>PLACEHOLDER</string>
+	<string>AIzaSyDth80w4-3skX18MMoMDn7lLLhdGxHzdV8</string>
 	<key>GCM_SENDER_ID</key>
-	<string>PLACEHOLDER</string>
+	<string>210661328581</string>
 	<key>PLIST_VERSION</key>
-	<string>PLACEHOLDER</string>
+	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>PLACEHOLDER</string>
+	<string>org.halpeters.QuakeCatalogMobile</string>
 	<key>PROJECT_ID</key>
-	<string>PLACEHOLDER</string>
+	<string>react-native-quake-catalog</string>
 	<key>STORAGE_BUCKET</key>
-	<string>PLACEHOLDER</string>
+	<string>react-native-quake-catalog.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true></true>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false></false>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>PLACEHOLDER</string>
+	<string>1:210661328581:ios:328b9200e50a0e94bad2ac</string>
 	<key>DATABASE_URL</key>
-	<string>https://PLACEHOLDER.firebaseio.com</string>
+	<string>https://react-native-quake-catalog.firebaseio.com</string>
 </dict>
 </plist>
