@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Platform, ColorPropType, TouchableNativeFeedback, TouchableOpacity, View, Text } from 'react-native';
+import {
+  Platform, ColorPropType, TouchableNativeFeedback, TouchableOpacity, View, Text
+} from 'react-native';
 import { Navigation } from 'react-native-navigation';
-import styles from '../../styles/theme/ButtonViewStyles'
+import styles from '../../styles/theme/ButtonViewStyles';
 
 export default class ButtonView extends Component {
   static propTypes = {
@@ -32,9 +34,9 @@ export default class ButtonView extends Component {
 
     if (color) {
       if (Platform.OS === 'ios') {
-        textStyles.push({color: color});
+        textStyles.push({ color });
       } else {
-        buttonStyles.push({backgroundColor: color});
+        buttonStyles.push({ backgroundColor: color });
       }
     }
 
@@ -45,10 +47,8 @@ export default class ButtonView extends Component {
       accessibilityTraits.push('disabled');
     }
 
-    const formattedTitle =
-      Platform.OS === 'android' ? title.toUpperCase() : title;
-    let Touchable =
-      Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity;
+    const formattedTitle = Platform.OS === 'android' ? title.toUpperCase() : title;
+    let Touchable = Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity;
 
     if (typeof onPressIn === 'function') {
       Touchable = Navigation.TouchablePreview;
@@ -56,14 +56,15 @@ export default class ButtonView extends Component {
 
     return (
       <Touchable
-        accessibilityComponentType='button'
+        accessibilityComponentType="button"
         accessibilityLabel={accessibilityLabel}
         accessibilityTraits={accessibilityTraits}
         hasTVPreferredFocus={hasTVPreferredFocus}
         testID={testID}
         disabled={disabled}
         onPress={onPress}
-        onPressIn={onPressIn}>
+        onPressIn={onPressIn}
+      >
         <View style={buttonStyles}>
           <Text style={textStyles} disabled={disabled}>
             {formattedTitle}

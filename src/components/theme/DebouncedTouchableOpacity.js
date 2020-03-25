@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { TouchableOpacity } from 'react-native'
+import React, { Component } from 'react';
+import { TouchableOpacity } from 'react-native';
 
 export default class DebouncedTouchableOpacity extends Component {
   constructor(props) {
-    super(props)
-    this.debounce = false
+    super(props);
+    this.debounce = false;
   }
 
   render() {
@@ -13,25 +13,25 @@ export default class DebouncedTouchableOpacity extends Component {
         {...this.props}
         onPress={() => {
           if (this.debounce) {
-            return
-          } else {
-            this.props.onPress()
+            return;
           }
+          this.props.onPress();
+
           this.debounce = setTimeout(() => {
-            this.debounce = false
-          }, 250)
+            this.debounce = false;
+          }, 250);
         }}
       />
-    )
+    );
   }
 }
 
 DebouncedTouchableOpacity.defaultProps = {
-  //Add any missing prop that you want to pass to TouchableOpacity here
+  // Add any missing prop that you want to pass to TouchableOpacity here
   onPress: () => {},
   onPressIn: () => {},
   onPressOut: () => {},
   style: {},
   disabled: false,
   activeOpacity: 0.8
-}
+};

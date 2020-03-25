@@ -4,12 +4,12 @@ import {
   Text,
   View,
 } from 'react-native';
-import { inject, observer } from 'mobx-react'
-import { Navigation } from 'react-native-navigation'
-import LinearGradient from 'react-native-linear-gradient'
-import Button from '../theme/ButtonView'
-import { Icons, Images } from '../../styles/theme'
-import styles from '../../styles/routes/HomeViewStyles'
+import { inject, observer } from 'mobx-react';
+import { Navigation } from 'react-native-navigation';
+import LinearGradient from 'react-native-linear-gradient';
+import Button from '../theme/ButtonView';
+import { Icons, Images } from '../../styles/theme';
+import styles from '../../styles/routes/HomeViewStyles';
 
 @inject('appState')
 @observer
@@ -43,11 +43,11 @@ export default class HomeView extends Component {
           locations={[0.15, 0.48, 1]}
           style={styles.root}
         >
-          <Image source={Images.logo}/> 
-          <Button title='Switch to tab based app' onPress={this.onClickSwitchToTabs} />
-          <Button title='Register' onPress={this.onClickPush('App.Register')} />
-          <Button title='Login' onPress={this.onClickPush('App.Login')} />
-          <Button title='Show Modal' onPress={this.showModal} />
+          <Image source={Images.logo} />
+          <Button title="Switch to tab based app" onPress={this.onClickSwitchToTabs} />
+          <Button title="Register" onPress={this.onClickPush('App.Register')} />
+          <Button title="Login" onPress={this.onClickPush('App.Login')} />
+          <Button title="Show Modal" onPress={this.showModal} />
           <Text style={styles.footer}>{`this.props.componentId = ${this.props.componentId}`}</Text>
           {this.props.text ? (<Text style={styles.footer}>{this.props.text}</Text>) : false}
         </LinearGradient>
@@ -136,7 +136,7 @@ export default class HomeView extends Component {
     });
   }
 
-  onClickPush = (link) => async () => {
+  onClickPush = link => async () => {
     await Navigation.push(this.props.componentId, {
       component: {
         name: link,

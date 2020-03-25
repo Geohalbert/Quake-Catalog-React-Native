@@ -1,4 +1,2 @@
-module.exports = {
-  components: 'src/components/theme/**/index.js',
-  ignore: ['**/Extensions.*', '**/base.js']
-};
+export const components = "src/components/theme/**/index.js";
+export const ignore = ["**/Extensions.*", "**/base.js"];

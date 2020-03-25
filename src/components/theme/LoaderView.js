@@ -1,18 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
   Animated,
   Easing,
   View
-} from 'react-native'
-import { Icons } from '../../styles/theme'
+} from 'react-native';
 import Animation from 'lottie-react-native';
-import LOADER_JSON from '../../assets/lottie/loading-circle.json'
-import styles from '../../styles/theme/LoaderViewStyles'
+import { Icons } from '../../styles/theme';
+import LOADER_JSON from '../../assets/lottie/loading-circle.json';
+import styles from '../../styles/theme/LoaderViewStyles';
 
 export default class LoaderView extends Component {
   constructor(props) {
-    super(props)
-    this.animation = new Animated.Value(0)
+    super(props);
+    this.animation = new Animated.Value(0);
   }
 
   spin() {
@@ -23,11 +23,11 @@ export default class LoaderView extends Component {
         easing: Easing.linear,
         useNativeDriver: true
       })
-    ).start()
+    ).start();
   }
 
   componentDidMount() {
-    this.spin()
+    this.spin();
   }
 
   render() {
@@ -42,7 +42,7 @@ export default class LoaderView extends Component {
           extrapolate: 'clamp'
         })}
       />
-    </View>)
+    </View>);
   }
 
 
@@ -50,11 +50,11 @@ export default class LoaderView extends Component {
     const spin = this.animation.interpolate({
       inputRange: [0, 1],
       outputRange: ['0deg', '359deg']
-    })
+    });
     return (<Animated.Image
       style={[style, { transform: [{ rotate: spin }] }]}
       source={this.props.source || Icons.spinner}
-    />)
+    />);
   }
 
 }

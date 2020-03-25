@@ -1,5 +1,6 @@
 import { Navigation } from 'react-native-navigation';
-import Theme from './styles/theme'
+import Theme from './styles/theme';
+
 console.ignoredYellowBox = ['Remote debugger', 'Warning: isMounted(...) is deprecated'];
 
 export default class App {
@@ -29,5 +30,3 @@ export default class App {
     });
   }
 }
-
-
