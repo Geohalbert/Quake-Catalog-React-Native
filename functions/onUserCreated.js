@@ -3,6 +3,7 @@ const admin = require("./admin");
 
 module.exports = functions.auth.user().onCreate(user => {
   const { uid, email } = user;
+  const time = new Date().getTime();
   return admin
     .firestore()
     .collection("users")
@@ -10,7 +11,8 @@ module.exports = functions.auth.user().onCreate(user => {
     .set({
       email: email && email.toLowerCase ? email.toLowerCase() : email,
       uid: uid,
-      createdAt: new Date().getTime()
+      createdAt: time,
+      updatedAt: time
     })
     .catch(e => {
       console.log(e);
