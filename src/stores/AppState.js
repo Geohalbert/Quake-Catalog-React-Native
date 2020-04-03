@@ -1,20 +1,32 @@
-import { computed, observable, action } from 'mobx';
-import { Keyboard, Platform, Dimensions } from 'react-native';
-import LocalStorage from '../utils/LocalStorage';
-import Theme from '../styles/theme.js';
+import { observable, action } from "mobx";
+import LocalStorage from "../utils/LocalStorage";
+import { Navigation } from "react-native-navigation";
 
 class AppState {
-  @observable root = 'after-login';
+  @observable root = "Home";
 
   constructor() {
-    LocalStorage.getItem('authenticated').then((res) => {
-      this.setRoot((res && res.isLoggedIn) ? 'after-login' : 'login');
+    LocalStorage.getItem("user").then(res => {
+      this.newRoot(res ? "Query" : "Home");
     });
   }
 
-	@action
-  setRoot(newRoot) {
-    this.root = newRoot;
+  @action
+  newRoot(root) {
+    Navigation.setRoot({
+      root: {
+        stack: {
+          id: "App",
+          children: [
+            {
+              component: {
+                name: `App.${root}`
+              }
+            }
+          ]
+        }
+      }
+    });
   }
 }
 

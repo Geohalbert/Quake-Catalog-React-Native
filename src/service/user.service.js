@@ -1,6 +1,9 @@
-import firebase from 'react-native-firebase';
+import firebase from "react-native-firebase";
 
 export default {
-  createUserWithEmailAndPassword: (username, password) => firebase.auth().createUserWithEmailAndPassword(username, password),
-  signInWithEmailAndPassword: (username, password) => firebase.auth().signInWithEmailAndPassword(username, password)
+  createUserWithEmailAndPassword: (username, password) =>
+    firebase.auth().createUserWithEmailAndPassword(username, password),
+  signInWithEmailAndPassword: (username, password) =>
+    firebase.auth().signInWithEmailAndPassword(username, password),
+  signOut: () => firebase.auth().signOut()
 };

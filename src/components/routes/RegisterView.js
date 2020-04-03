@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
-import {
-  View,
-} from 'react-native';
-import { inject, observer } from 'mobx-react';
-import { Navigation } from 'react-native-navigation';
-import styles from '../../styles/routes/LoginViewStyles';
-import LoginSubView from '../theme/LoginSubView';
+import React, { Component } from "react";
+import { View } from "react-native";
+import { inject, observer } from "mobx-react";
+import { Navigation } from "react-native-navigation";
+import styles from "../../styles/routes/LoginViewStyles";
+import LoginSubView from "../theme/LoginSubView";
 
-@inject('user')
+@inject("user")
 @observer
-export default class Register extends Component {
+class RegisterView extends Component {
   static options() {
     return {
       topBar: {
         title: {
-          text: 'Register',
-        },
+          text: "Register"
+        }
       }
     };
   }
@@ -23,7 +21,7 @@ export default class Register extends Component {
   constructor() {
     super();
     this.state = {
-      loading: false,
+      loading: false
     };
   }
 
@@ -33,7 +31,7 @@ export default class Register extends Component {
       this.setState({ loading: false });
       Navigation.pop(this.props.componentId);
     });
-  }
+  };
 
   render() {
     return (
@@ -43,3 +41,5 @@ export default class Register extends Component {
     );
   }
 }
+
+export default RegisterView;

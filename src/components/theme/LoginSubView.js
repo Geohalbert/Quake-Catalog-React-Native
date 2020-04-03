@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
-import {
-  TextInput,
-  View,
-  Text
-} from 'react-native';
-import { inject, observer } from 'mobx-react';
-import styles from '../../styles/routes/LoginViewStyles';
-import DebouncedTouchableOpacity from './DebouncedTouchableOpacity';
-import LoaderView from './LoaderView';
+import React, { Component } from "react";
+import { TextInput, View, Text } from "react-native";
+import { inject, observer } from "mobx-react";
+import styles from "../../styles/routes/LoginViewStyles";
+import DebouncedTouchableOpacity from "./DebouncedTouchableOpacity";
+import LoaderView from "./LoaderView";
 
-@inject('appState')
+@inject("appState")
 @observer
 export default class LoginSubView extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      email: "geohalbert@gmail.com",
+      password: "password"
+    };
   }
 
   render() {
@@ -30,7 +29,7 @@ export default class LoginSubView extends Component {
             onChangeText={text => this.setState({ email: text })}
             returnKeyType="next"
             value={this.state.email}
-            onSubmitEditing={(event) => {
+            onSubmitEditing={event => {
               this.refs.password.focus();
             }}
           />
@@ -46,14 +45,32 @@ export default class LoginSubView extends Component {
             returnKeyType="done"
             value={this.state.password}
             secureTextEntry={true}
-            onSubmitEditing={() => { }}
+            onSubmitEditing={() => {}}
           />
         </View>
         <View style={styles.centerItems}>
-          {this.props.loading ? (<LoaderView />) : (<DebouncedTouchableOpacity style={styles.submitButton} onPress={() => this.props.onSubmit(this.state.email, this.state.password)}>
-            <Text>SUBMIT</Text>
-                                                    </DebouncedTouchableOpacity>)}
+          {this.props.loading ? (
+            <LoaderView />
+          ) : (
+            <View>
+              <DebouncedTouchableOpacity
+                style={styles.submitButton}
+                onPress={() =>
+                  this.props.onSubmit(this.state.email, this.state.password)
+                }
+              >
+                <Text>SUBMIT</Text>
+              </DebouncedTouchableOpacity>
+              <DebouncedTouchableOpacity
+                style={styles.submitButton}
+                onPress={() => this.props.logout()}
+              >
+                <Text>Logout</Text>
+              </DebouncedTouchableOpacity>
+            </View>
+          )}
         </View>
-      </View>);
+      </View>
+    );
   }
 }

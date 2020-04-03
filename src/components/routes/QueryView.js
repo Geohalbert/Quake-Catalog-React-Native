@@ -1,20 +1,19 @@
 import React, { Component } from "react";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 import { inject, observer } from "mobx-react";
 import { Navigation } from "react-native-navigation";
 import styles from "../../styles/routes/LoginViewStyles";
-import LoginSubView from "../theme/LoginSubView";
 import Theme from "../../styles/theme";
+import LoginSubView from "../theme/LoginSubView";
 
 @inject("user")
-@inject("appState")
 @observer
-class LoginView extends Component {
+class QueryView extends Component {
   static options() {
     return {
       topBar: {
         title: {
-          text: "Login"
+          text: "Query"
         },
         backButton: {
           color: Theme.linkColor
@@ -29,36 +28,6 @@ class LoginView extends Component {
       loading: false
     };
   }
-
-  onClickPush = link => async () => {
-    await Navigation.push(this.props.componentId, {
-      component: {
-        name: link
-      }
-    });
-  };
-
-  onSubmit = (username, password) => {
-    this.setState({ loading: true });
-    this.props.user.login(username, password).then(() => {
-      this.setState({ loading: false });
-      Navigation.setRoot({
-        root: {
-          stack: {
-            id: "App",
-            children: [
-              {
-                component: {
-                  name: `App.Query`
-                }
-              }
-            ]
-          }
-        }
-      });
-      Navigation.pop(this.props.componentId);
-    });
-  };
 
   logout = () => {
     this.setState({ loading: true });
@@ -85,6 +54,8 @@ class LoginView extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text>Query</Text>
+
         <LoginSubView
           onSubmit={this.onSubmit}
           logout={this.logout}
@@ -95,4 +66,4 @@ class LoginView extends Component {
   }
 }
 
-export default LoginView;
+export default QueryView;
