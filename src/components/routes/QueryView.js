@@ -4,7 +4,7 @@ import { inject, observer } from "mobx-react";
 import { Navigation } from "react-native-navigation";
 import styles from "../../styles/routes/LoginViewStyles";
 import Theme from "../../styles/theme";
-import LoginSubView from "../theme/LoginSubView";
+import QuerySubView from "../theme/QuerySubView";
 
 @inject("user")
 @observer
@@ -47,7 +47,6 @@ class QueryView extends Component {
           }
         }
       });
-      // Navigation.pop(this.props.componentId);
     });
   };
 
@@ -56,7 +55,7 @@ class QueryView extends Component {
       <View style={styles.container}>
         <Text>Query</Text>
 
-        <LoginSubView
+        <QuerySubView
           onSubmit={this.onSubmit}
           logout={this.logout}
           loading={this.state.loading}
