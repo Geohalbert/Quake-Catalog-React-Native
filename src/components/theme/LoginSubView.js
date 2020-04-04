@@ -29,7 +29,7 @@ class LoginSubView extends Component {
             onChangeText={text => this.setState({ email: text })}
             returnKeyType="next"
             value={this.state.email}
-            onSubmitEditing={event => {
+            onSubmitEditing={() => {
               this.refs.password.focus();
             }}
           />

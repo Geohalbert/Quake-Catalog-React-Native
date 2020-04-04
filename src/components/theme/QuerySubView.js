@@ -37,7 +37,7 @@ class QuerySubView extends Component {
     let end = `&endtime=${this.convert(state.endtime)}`;
     let params = [start, end];
     let ignore = ["starttime", "endtime", "quakes", "loading"];
-    Object.keys(state).forEach((key, index) => {
+    Object.keys(state).forEach(key => {
       if (state[key] != null && !ignore.includes(key)) {
         params.push(`&${key}=${state[key]}`);
       }
