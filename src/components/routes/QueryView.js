@@ -7,6 +7,7 @@ import Theme from "../../styles/theme";
 import QuerySubView from "../theme/QuerySubView";
 
 @inject("user")
+@inject("quake")
 @observer
 class QueryView extends Component {
   static options() {
@@ -28,6 +29,12 @@ class QueryView extends Component {
       loading: false
     };
   }
+  submitQuery = str => {
+    this.setState({ loading: true });
+    this.props.quake.query(str).then(() => {
+      this.setState({ loading: false });
+    });
+  };
 
   logout = () => {
     this.setState({ loading: true });
@@ -56,8 +63,8 @@ class QueryView extends Component {
         <Text>Query</Text>
 
         <QuerySubView
-          onSubmit={this.onSubmit}
           logout={this.logout}
+          submitQuery={this.submitQuery}
           loading={this.state.loading}
         />
       </View>

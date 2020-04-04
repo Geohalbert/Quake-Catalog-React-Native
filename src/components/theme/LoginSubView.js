@@ -7,7 +7,7 @@ import LoaderView from "./LoaderView";
 
 @inject("appState")
 @observer
-export default class LoginSubView extends Component {
+class LoginSubView extends Component {
   constructor() {
     super();
     this.state = {
@@ -74,3 +74,5 @@ export default class LoginSubView extends Component {
     );
   }
 }
+
+export default LoginSubView;
