@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, ScrollView, SafeAreaView } from "react-native";
+import { StyleSheet, View, ScrollView, SafeAreaView } from "react-native";
 import { inject, observer } from "mobx-react";
 import { toJS } from "mobx";
 import Theme from "../../styles/theme";
