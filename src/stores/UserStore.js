@@ -34,6 +34,7 @@ class UserStore {
         if (resp.user) {
           this.user = resp.user;
           this.loggedIn = true;
+          this.userId = resp.user.uid;
           LocalStorage.setItem("user", resp.user);
         }
       })
@@ -48,6 +49,7 @@ class UserStore {
       .then(() => {
         this.user = {};
         this.loggedIn = false;
+        this.userId = "";
         LocalStorage.removeItem("user");
       })
       .catch(e => {
@@ -55,9 +57,18 @@ class UserStore {
       });
   }
 
+  @action
+  getUserId() {
+    return this._userId;
+  }
+
   @computed
   get userId() {
     return this._userId === "" ? false : this._userId;
+  }
+
+  set userId(id) {
+    this._userId = id;
   }
 
   @computed

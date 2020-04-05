@@ -19,6 +19,8 @@ module.exports = {
   },
   plugins: ["react", "react-native"],
   rules: {
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "react/no-string-refs": "off",
+    "no-unused-wars": "off"
   }
 };
