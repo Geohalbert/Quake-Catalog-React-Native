@@ -1,35 +1,40 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView, SafeAreaView } from "react-native";
+import ListItem from "./ListItem";
 
 export default function QueryList(props) {
   const { quakes } = props;
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>QueryList</Text>
-      <View style={styles.listContainer}>
-        {quakes.map(quake => {
+      <ScrollView>
+        {quakes.map((quake, index) => {
           return (
-            <View style={styles.quakeContainer}>
-              <Text style={styles.text}>{quake.properties.mag}</Text>
+            <View style={styles.quakeContainer} key={index}>
+              <ListItem quake={quake} index={index} />
             </View>
           );
         })}
-      </View>
-    </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { width: 300, marginBottom: 5 },
-  title: {
-    fontSize: 16
-  },
-  listContainer: {
-    flexDirection: "row",
+  container: {
+    flexDirection: "column",
     flexWrap: "wrap",
     justifyContent: "space-between",
-    paddingVertical: 10
+    alignItems: "center",
+    paddingVertical: 10,
+    marginBottom: 5
+  },
+  title: {
+    fontSize: 16,
+    textAlign: "center",
+    fontWeight: "bold",
+    marginBottom: 15
   },
   quakeContainer: {
     flexDirection: "row",
