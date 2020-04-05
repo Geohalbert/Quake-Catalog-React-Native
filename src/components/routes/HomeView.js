@@ -4,7 +4,7 @@ import { inject, observer } from "mobx-react";
 import { Navigation } from "react-native-navigation";
 import LinearGradient from "react-native-linear-gradient";
 import Button from "../theme/ButtonView";
-import { Icons, Images } from "../../styles/theme";
+import { Images } from "../../styles/theme";
 import styles from "../../styles/routes/HomeViewStyles";
 
 @inject("appState")

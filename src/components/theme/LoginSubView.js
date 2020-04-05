@@ -7,7 +7,7 @@ import LoaderView from "./LoaderView";
 
 @inject("appState")
 @observer
-export default class LoginSubView extends Component {
+class LoginSubView extends Component {
   constructor() {
     super();
     this.state = {
@@ -29,7 +29,7 @@ export default class LoginSubView extends Component {
             onChangeText={text => this.setState({ email: text })}
             returnKeyType="next"
             value={this.state.email}
-            onSubmitEditing={event => {
+            onSubmitEditing={() => {
               this.refs.password.focus();
             }}
           />
@@ -74,3 +74,5 @@ export default class LoginSubView extends Component {
     );
   }
 }
+
+export default LoginSubView;
