@@ -7,18 +7,18 @@ import stores from "../../stores";
 // Route Imports
 import HomeView from "./HomeView";
 import LoginView from "./LoginView";
-import QueryView from "./QueryView";
+import QueryForm from "./QueryForm";
+import QueryResults from "./QueryResults";
 import RegisterView from "./RegisterView";
-// import Initializing from "./Initializing";
 
 export default routes;
 
 const routes = {
   "App.Home": HomeView,
   "App.Login": LoginView,
-  "App.Query": QueryView,
+  "App.Query": QueryForm,
+  "App.QueryResults": QueryResults,
   "App.Register": RegisterView
-  // "App.Initializing": Initializing
 };
 
 // Register all screens of the app (including internal ones)
