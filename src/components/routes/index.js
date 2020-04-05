@@ -7,8 +7,8 @@ import stores from "../../stores";
 // Route Imports
 import HomeView from "./HomeView";
 import LoginView from "./LoginView";
-import QueryView from "./QueryView";
-import QueryList from "./QueryList";
+import QueryForm from "./QueryForm";
+import QueryResults from "./QueryResults";
 import RegisterView from "./RegisterView";
 
 export default routes;
@@ -16,8 +16,8 @@ export default routes;
 const routes = {
   "App.Home": HomeView,
   "App.Login": LoginView,
-  "App.Query": QueryView,
-  "App.QueryList": QueryList,
+  "App.Query": QueryForm,
+  "App.QueryResults": QueryResults,
   "App.Register": RegisterView
 };
 

@@ -7,7 +7,7 @@ import ListItem from "../theme/ListItem";
 
 @inject("quake")
 @observer
-class QueryList extends Component {
+class QueryResults extends Component {
   static options() {
     return {
       topBar: {
@@ -67,4 +67,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default QueryList;
+export default QueryResults;

@@ -9,7 +9,7 @@ import QuerySubView from "../theme/QuerySubView";
 @inject("user")
 @inject("quake")
 @observer
-class QueryView extends Component {
+class QueryForm extends Component {
   static options() {
     return {
       topBar: {
@@ -36,7 +36,7 @@ class QueryView extends Component {
       this.setState({ loading: false });
       Navigation.push(this.props.componentId, {
         component: {
-          name: "App.QueryList"
+          name: "App.QueryResults"
         }
       });
     });
@@ -76,4 +76,4 @@ class QueryView extends Component {
   }
 }
 
-export default QueryView;
+export default QueryForm;
