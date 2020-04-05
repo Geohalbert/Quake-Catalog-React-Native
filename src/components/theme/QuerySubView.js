@@ -88,6 +88,42 @@ class QuerySubView extends Component {
             value={this.state.maxmagnitude}
           />
         </View>
+        <Text style={styles.inputTitle}>Limit</Text>
+        <View style={styles.inputWrap}>
+          <TextInput
+            ref="limit"
+            placeholder="10"
+            keyboard="numeric"
+            style={styles.input}
+            onChangeText={text => this.setState({ limit: text })}
+            returnKeyType="next"
+            value={this.state.limit}
+          />
+        </View>
+        <Text style={styles.inputTitle}>Min Depth</Text>
+        <View style={styles.inputWrap}>
+          <TextInput
+            ref="mindepth"
+            placeholder="5"
+            keyboard="numeric"
+            style={styles.input}
+            onChangeText={text => this.setState({ mindepth: text })}
+            returnKeyType="next"
+            value={this.state.mindepth}
+          />
+        </View>
+        <Text style={styles.inputTitle}>Max Depth</Text>
+        <View style={styles.inputWrap}>
+          <TextInput
+            ref="maxdepth"
+            placeholder="50"
+            keyboard="numeric"
+            style={styles.input}
+            onChangeText={text => this.setState({ maxdepth: text })}
+            returnKeyType="next"
+            value={this.state.maxdepth}
+          />
+        </View>
         <View style={styles.centerItems}>
           {this.props.loading ? (
             <LoaderView />
