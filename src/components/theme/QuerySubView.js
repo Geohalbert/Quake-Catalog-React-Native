@@ -57,7 +57,7 @@ class QuerySubView extends Component {
   };
 
   onSubmit = async () => {
-    const qStr = await this.queryString;
+    const qStr = await this.queryString();
     this.props.submitQuery(qStr);
   };
 
@@ -74,7 +74,6 @@ class QuerySubView extends Component {
             onChangeText={text => this.setState({ minmagnitude: text })}
             returnKeyType="next"
             value={this.state.minmagnitude}
-            // onSubmitEditing={() => {}}
           />
         </View>
         <Text style={styles.inputTitle}>Max Mag</Text>
@@ -87,7 +86,6 @@ class QuerySubView extends Component {
             onChangeText={text => this.setState({ maxmagnitude: text })}
             returnKeyType="next"
             value={this.state.maxmagnitude}
-            //onSubmitEditing={() => {}}
           />
         </View>
         <View style={styles.centerItems}>
@@ -97,7 +95,7 @@ class QuerySubView extends Component {
             <View>
               <DebouncedTouchableOpacity
                 style={styles.submitButton}
-                onPress={() => this.onSubmit}
+                onPress={() => this.onSubmit()}
               >
                 <Text>SUBMIT</Text>
               </DebouncedTouchableOpacity>

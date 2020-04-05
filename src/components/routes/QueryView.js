@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { inject, observer } from "mobx-react";
+import { toJS } from "mobx";
 import { Navigation } from "react-native-navigation";
 import styles from "../../styles/routes/LoginViewStyles";
 import Theme from "../../styles/theme";
 import QuerySubView from "../theme/QuerySubView";
+import QueryList from "../theme/QueryList";
 
 @inject("user")
 @inject("quake")
@@ -26,7 +28,8 @@ class QueryView extends Component {
   constructor() {
     super();
     this.state = {
-      loading: false
+      loading: false,
+      quakes: []
     };
   }
   submitQuery = str => {
@@ -58,15 +61,15 @@ class QueryView extends Component {
   };
 
   render() {
+    const quakes = toJS(this.props.quake.quakes);
     return (
       <View style={styles.container}>
-        <Text>Query</Text>
-
         <QuerySubView
           logout={this.logout}
           submitQuery={this.submitQuery}
           loading={this.state.loading}
         />
+        {quakes.length > 0 && <QueryList quakes={quakes} />}
       </View>
     );
   }
