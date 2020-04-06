@@ -2,7 +2,7 @@ import { observable, action, computed } from "mobx";
 import { Alert } from "react-native";
 import autobind from "autobind-decorator";
 import QUAKESERVICE from "../service/quake.service";
-import QuakeList from "./models/QuakeList";
+// import QuakeList from "./models/QuakeList";
 
 @autobind
 class QuakeStore {
@@ -39,9 +39,8 @@ class QuakeStore {
   }
 
   @action
-  changeQuakes = data => {
-    const obj = new QuakeList(data);
-    this.quakes.push(obj);
+  saveQuery = payload => {
+    return QUAKESERVICE.saveQuery(payload);
   };
 
   @computed
