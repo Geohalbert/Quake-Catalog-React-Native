@@ -2,8 +2,7 @@ const functions = require("firebase-functions");
 const admin = require("./admin");
 
 module.exports = functions.https.onRequest(async (req, res) => {
-  const quakes = req.quakes;
-  const uid = req.uid;
+  const { quakes, uid } = req;
   const time = new Date().getTime();
   const userRef = admin
     .firestore()
@@ -11,13 +10,15 @@ module.exports = functions.https.onRequest(async (req, res) => {
     .doc(uid);
 
   try {
+    console.log(`trying to update`);
     userRef.update({
-      quakes,
+      quakes: quakes,
       updatedAt: time
     });
     res.json({ result: `Query with ID: ${addQuery.id} added.` });
   } catch (e) {
-    userRef.set({ quakes, createdAt: time, updatedAt: time });
+    console.log(`catch error`);
+    userRef.set({ quakes: quakes, createdAt: time, updatedAt: time });
     console.error(e.result);
   }
 });

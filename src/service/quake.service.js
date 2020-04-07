@@ -1,5 +1,5 @@
 import axios from "axios";
-import api from "../utils/api";
+import { post } from "../utils/api";
 
 const USGS_API_URL =
   "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson";
@@ -10,5 +10,8 @@ const FB_API_URL =
 export default {
   getQuakeList: str => axios.get(`${USGS_API_URL}${str}`),
   getQuake: id => axios.get(`${USGS_API_URL}&eventid=${id}`),
-  saveQuery: payload => api.post(`${FB_API_URL}saveQuery`, payload)
+  saveQuery: payload =>
+    post(`${FB_API_URL}saveQuery`, payload, {}, {}, 10000).catch(error => {
+      console.log(error);
+    })
 };

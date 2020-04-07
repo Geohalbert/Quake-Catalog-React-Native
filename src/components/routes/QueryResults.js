@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { StyleSheet, View, ScrollView, SafeAreaView } from "react-native";
+import {
+  Button,
+  StyleSheet,
+  View,
+  ScrollView,
+  SafeAreaView
+} from "react-native";
+import firebase from "react-native-firebase";
 import { inject, observer } from "mobx-react";
 import { toJS } from "mobx";
 import Theme from "../../styles/theme";
@@ -31,6 +38,7 @@ class QueryResults extends Component {
 
   render() {
     const quakes = toJS(this.props.quake.quakes);
+    const uid = firebase.auth().currentUser.uid;
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView>
@@ -42,6 +50,10 @@ class QueryResults extends Component {
             );
           })}
         </ScrollView>
+        <Button
+          title="SAVE"
+          onPress={() => this.props.quake.saveQuery({ quakes, uid })}
+        />
       </SafeAreaView>
     );
   }

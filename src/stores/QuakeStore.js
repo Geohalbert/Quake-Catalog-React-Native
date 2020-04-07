@@ -1,6 +1,7 @@
 import { observable, action, computed } from "mobx";
 import { Alert } from "react-native";
 import autobind from "autobind-decorator";
+import firebase from "react-native-firebase";
 import QUAKESERVICE from "../service/quake.service";
 // import QuakeList from "./models/QuakeList";
 
